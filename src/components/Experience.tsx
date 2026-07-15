@@ -51,6 +51,9 @@ export default function Experience() {
                       {job.role}
                     </h3>
                     <p className="text-slate-400 text-sm mt-0.5">{job.company}</p>
+                    {'companyDesc' in job && (
+                      <p className="text-slate-500 text-xs mt-0.5">{(job as typeof job & { companyDesc: string }).companyDesc}</p>
+                    )}
                   </div>
                   <time
                     className="flex-shrink-0 text-xs font-mono font-medium px-3 py-1.5 bg-gold-500/10 text-gold-400 border border-gold-500/20 rounded-full"

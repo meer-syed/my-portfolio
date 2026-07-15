@@ -1,5 +1,38 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import profilePic from '../assets/profile.jpg';
+
+// ── Tech marquee data ──────────────────────────────────────────────────────────
+const TECH_ROW_1 = [
+  { icon: '🌐', label: 'HTML5' },
+  { icon: '🎨', label: 'CSS3' },
+  { icon: '⚡', label: 'JavaScript' },
+  { icon: '🔷', label: 'TypeScript' },
+  { icon: '⚛️',  label: 'React.js' },
+  { icon: '▲',  label: 'Next.js' },
+  { icon: '💨', label: 'Tailwind CSS' },
+  { icon: '🟢', label: 'Node.js' },
+  { icon: '🚂', label: 'Express.js' },
+  { icon: '🍃', label: 'MongoDB' },
+  { icon: '🔥', label: 'Firebase' },
+];
+
+const TECH_ROW_2 = [
+  { icon: '🔗', label: 'Git' },
+  { icon: '🐙', label: 'GitHub' },
+  { icon: '🅱️', label: 'Bootstrap' },
+  { icon: '🖌️', label: 'Canva' },
+  { icon: '✏️', label: 'Figma' },
+  { icon: '📘', label: 'Meta Ads' },
+  { icon: '🔍', label: 'SEO' },
+  { icon: '📱', label: 'Social Media' },
+  { icon: '💡', label: 'UI Design' },
+  { icon: '📝', label: 'Content Strategy' },
+  { icon: '🎯', label: 'Lead Generation' },
+];
+
+// Duplicate for seamless infinite loop
+const ROW1 = [...TECH_ROW_1, ...TECH_ROW_1];
+const ROW2 = [...TECH_ROW_2, ...TECH_ROW_2];
 
 const ROLES = [
   'Full-Stack Developer',
@@ -37,6 +70,8 @@ function useTypingEffect(words: string[], typingSpeed = 80, deletingSpeed = 40, 
 export default function Hero() {
   const typedText = useTypingEffect(ROLES);
   const [loaded, setLoaded] = useState(false);
+  const track1Ref = useRef<HTMLDivElement>(null);
+  const track2Ref = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const t = setTimeout(() => setLoaded(true), 100);
@@ -71,7 +106,7 @@ export default function Hero() {
         aria-hidden="true"
       />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-6 py-32 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+      <div className="relative z-10 max-w-7xl mx-auto px-6 pt-32 pb-40 flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
         {/* Text content */}
         <div className={`flex-1 text-center lg:text-left transition-all duration-700 ${loaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {/* Badge */}
@@ -97,12 +132,11 @@ export default function Hero() {
 
           {/* Summary */}
           <p className="text-slate-400 text-base sm:text-lg leading-relaxed max-w-xl mx-auto lg:mx-0 mb-8">
-            CS student & entrepreneur scaling brands at the intersection of{' '}
-            <span className="text-gold-400 font-semibold">technology</span> and{' '}
+            CS undergraduate (7th semester) at GCU Faisalabad with hands-on experience in{' '}
+            <span className="text-gold-400 font-semibold">full-stack development</span> and{' '}
             <span className="text-gold-400 font-semibold">digital marketing</span>.
-            Currently managing{' '}
-            <span className="text-white font-medium">QJ Tax & Legal</span>, building
-            global ventures, and crafting full-stack products that drive real growth.
+            Currently interning at <span className="text-white font-medium">Decode Labs</span> and
+            managing brand growth for <span className="text-white font-medium">QJ Tax & Legal</span>.
           </p>
 
           {/* Stats row */}
@@ -156,6 +190,19 @@ export default function Hero() {
             </a>
             <span className="w-px h-4 bg-slate-700" aria-hidden="true" />
             <a
+              href="https://linkedin.com/in/meer-kalal-arshad-62519a392"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm group focus-visible:outline-gold-400 rounded"
+              aria-label="LinkedIn profile (opens in new tab)"
+            >
+              <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              <span className="group-hover:underline">LinkedIn</span>
+            </a>
+            <span className="w-px h-4 bg-slate-700" aria-hidden="true" />
+            <a
               href="mailto:imeersyed143@gmail.com"
               className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors text-sm group focus-visible:outline-gold-400 rounded"
               aria-label="Send email to Meer"
@@ -184,7 +231,7 @@ export default function Hero() {
             <div className="absolute inset-6 rounded-full overflow-hidden ring-2 ring-gold-500/40 ring-offset-4 ring-offset-navy-950 shadow-gold-lg">
               <img
                 src={profilePic}
-                alt="Meer Kalal Arshad — Full-Stack Developer and Digital Marketing Specialist"
+                alt="Meer Kalal Arshad — Full-Stack Developer and Digital Marketing Specialist, Faisalabad"
                 className="w-full h-full object-cover object-top"
                 loading="eager"
                 fetchPriority="high"
@@ -205,6 +252,33 @@ export default function Hero() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 text-slate-500" aria-hidden="true">
         <span className="text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-8 bg-gradient-to-b from-slate-500 to-transparent animate-pulse" />
+      </div>
+
+      {/* ── Tech Language Marquee ────────────────────────────────────────────── */}
+      <div className="absolute bottom-0 left-0 right-0 pb-6 z-10" aria-hidden="true">
+        {/* Row 1 — moves left */}
+        <div className="marquee-wrapper mb-3">
+          <div className="marquee-track" ref={track1Ref}>
+            {ROW1.map((tech, i) => (
+              <span key={i} className="marquee-item">
+                <span className="tech-icon">{tech.icon}</span>
+                {tech.label}
+              </span>
+            ))}
+          </div>
+        </div>
+
+        {/* Row 2 — moves right (reverse) */}
+        <div className="marquee-wrapper">
+          <div className="marquee-track-reverse" ref={track2Ref}>
+            {ROW2.map((tech, i) => (
+              <span key={i} className="marquee-item">
+                <span className="tech-icon">{tech.icon}</span>
+                {tech.label}
+              </span>
+            ))}
+          </div>
+        </div>
       </div>
     </section>
   );
