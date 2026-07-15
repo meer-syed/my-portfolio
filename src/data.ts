@@ -86,7 +86,7 @@ export const PROJECTS = [
     color: 'from-blue-900 to-indigo-900',
     accent: '#3B82F6',
     github: 'https://github.com/meer-syed',
-    demo: '#',
+    demo: 'https://travel-booking-website-rho.vercel.app/',
     status: 'Live',
   },
   {

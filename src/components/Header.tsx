@@ -69,15 +69,15 @@ export default function Header() {
 
         {/* CTA */}
         <a
-          href="#contact"
-          onClick={(e) => { e.preventDefault(); handleNav('#contact'); }}
+          href="/resume.pdf"
+          download="Meer_Kalal_Arshad_Resume.pdf"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-semibold text-sm rounded-lg transition-all duration-200 hover:shadow-gold focus-visible:outline-gold-400"
-          aria-label="Hire Meer — go to contact section"
+          aria-label="Download Meer's Resume"
         >
-          Hire Me
           <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
           </svg>
+          Resume
         </a>
 
         {/* Mobile hamburger */}
@@ -117,12 +117,15 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="#contact"
-            onClick={(e) => { e.preventDefault(); handleNav('#contact'); }}
-            className="mt-2 px-4 py-3 bg-gold-500 text-navy-900 font-semibold rounded-lg text-center"
+            href="/resume.pdf"
+            download="Meer_Kalal_Arshad_Resume.pdf"
+            className="mt-2 px-4 py-3 bg-gold-500 text-navy-900 font-semibold rounded-lg text-center flex items-center justify-center gap-2"
             tabIndex={menuOpen ? 0 : -1}
           >
-            Hire Me
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            Download Resume
           </a>
         </div>
       </div>

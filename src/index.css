@@ -145,36 +145,10 @@ body {
   cursor: none;
 }
 
-/* ─── Custom cursor ─────────────────────────────────────────────────────────── */
-
-#cursor-dot {
-  position: fixed;
-  top: 0; left: 0;
-  width: 8px; height: 8px;
-  background: #2563EB;
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9999;
-  transform: translate(-50%, -50%);
-  transition: transform 0.1s ease, background 0.2s ease;
-  mix-blend-mode: normal;
-}
-
-#cursor-ring {
-  position: fixed;
-  top: 0; left: 0;
-  width: 36px; height: 36px;
-  border: 1.5px solid rgba(37, 99, 235, 0.6);
-  border-radius: 50%;
-  pointer-events: none;
-  z-index: 9998;
-  transform: translate(-50%, -50%);
-  transition: transform 0.15s ease, width 0.2s ease, height 0.2s ease, border-color 0.2s ease;
-}
-
-body:hover #cursor-dot   { opacity: 1; }
-a:hover ~ #cursor-dot,
-button:hover ~ #cursor-dot { background: #06B6D4; transform: translate(-50%, -50%) scale(1.5); }
+/* ─── Custom cursor — handled entirely in App.tsx React component ───────────── */
+/* The #cursor-dot and #cursor-ring are now React divs with inline styles.      */
+/* This block just ensures cursor:none propagates everywhere.                    */
+a, button, [role="button"], input, textarea, select { cursor: none !important; }
 
 /* ─── Scroll progress bar ────────────────────────────────────────────────────── */
 
@@ -504,5 +478,5 @@ button:hover ~ #cursor-dot { background: #06B6D4; transform: translate(-50%, -50
 /* Mobile cursor reset */
 @media (pointer: coarse) {
   body { cursor: auto; }
-  #cursor-dot, #cursor-ring { display: none; }
+  body * { cursor: auto !important; }
 }

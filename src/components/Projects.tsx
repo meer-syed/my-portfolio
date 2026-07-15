@@ -38,11 +38,31 @@ export default function Projects() {
               style={{ animationDelay: `${idx * 100}ms` }}
               aria-label={project.title}
             >
-              {/* Card header */}
-              <div className={`bg-gradient-to-br ${project.color} p-6 flex items-start justify-between`}>
-                <span className="text-4xl" aria-hidden="true">{project.icon}</span>
-                <div className="flex items-center gap-2">
-                  {/* Status badge */}
+              {/* Card header — show screenshot for travel booking, gradient for others */}
+              {project.id === 'travel-booking' ? (
+                <div className="relative h-44 overflow-hidden">
+                  <img
+                    src="/assets/travel-booking.png"
+                    alt="TravelGo — Travel Booking Website screenshot"
+                    className="w-full h-full object-cover object-top group-hover:scale-105 transition-transform duration-500"
+                    loading="lazy"
+                    onError={(e) => {
+                      // fallback to gradient if image not found
+                      (e.currentTarget as HTMLImageElement).style.display = 'none';
+                      (e.currentTarget.parentElement as HTMLElement).classList.add('bg-gradient-to-br', 'from-blue-900', 'to-indigo-900');
+                    }}
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+                  <div className="absolute top-3 right-3 flex items-center gap-2">
+                    <span className="text-xs font-medium px-2.5 py-1 rounded-full bg-emerald-500/90 text-white border border-emerald-400/30">
+                      {project.status}
+                    </span>
+                  </div>
+                  <span className="absolute bottom-3 left-4 text-3xl" aria-hidden="true">{project.icon}</span>
+                </div>
+              ) : (
+                <div className={`bg-gradient-to-br ${project.color} p-6 flex items-start justify-between`}>
+                  <span className="text-4xl" aria-hidden="true">{project.icon}</span>
                   <span
                     className="text-xs font-medium px-2.5 py-1 rounded-full bg-black/30 text-white border border-white/20"
                     aria-label={`Status: ${project.status}`}
@@ -50,7 +70,7 @@ export default function Projects() {
                     {project.status}
                   </span>
                 </div>
-              </div>
+              )}
 
               {/* Card body */}
               <div className="p-6">

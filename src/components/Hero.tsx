@@ -78,9 +78,6 @@ export default function Hero() {
     return () => clearTimeout(t);
   }, []);
 
-  const scrollToContact = () => {
-    document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' });
-  };
   const scrollToProjects = () => {
     document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' });
   };
@@ -155,19 +152,31 @@ export default function Hero() {
 
           {/* CTAs */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <button
-              type="button"
-              onClick={scrollToContact}
-              className="group px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-all duration-200 hover:shadow-gold hover:-translate-y-0.5 focus-visible:outline-gold-400"
-              aria-label="Let's work together — scroll to contact"
+            <a
+              href="/resume.pdf"
+              download="Meer_Kalal_Arshad_Resume.pdf"
+              className="group btn-shimmer inline-flex items-center gap-2 px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-all duration-200 hover:shadow-gold hover:-translate-y-0.5 focus-visible:outline-gold-400"
+              aria-label="Download Meer's Resume PDF"
             >
-              Let's Work Together
-              <span className="ml-2 inline-block transition-transform group-hover:translate-x-1" aria-hidden="true">→</span>
-            </button>
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+              </svg>
+              Download Resume
+              <span className="ml-1 inline-block transition-transform group-hover:translate-y-0.5" aria-hidden="true">↓</span>
+            </a>
+            <a
+              href="https://wa.me/923167842387"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-gold-500/30 hover:border-gold-500/60 text-white font-semibold rounded-xl transition-all duration-200 hover:bg-gold-500/5 focus-visible:outline-gold-400"
+              aria-label="Hire Meer via WhatsApp"
+            >
+              Hire Me
+            </a>
             <button
               type="button"
               onClick={scrollToProjects}
-              className="px-8 py-3.5 border border-gold-500/30 hover:border-gold-500/60 text-white font-semibold rounded-xl transition-all duration-200 hover:bg-gold-500/5 focus-visible:outline-gold-400"
+              className="inline-flex items-center gap-2 px-8 py-3.5 border border-white/10 hover:border-white/30 text-slate-300 hover:text-white font-semibold rounded-xl transition-all duration-200 hover:bg-white/5 focus-visible:outline-gold-400"
               aria-label="View my projects"
             >
               View Projects
