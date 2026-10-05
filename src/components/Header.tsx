@@ -69,8 +69,10 @@ export default function Header() {
 
         {/* CTA */}
         <a
-          href="/resume.pdf"
-          download="Meer_Kalal_Arshad_Resume.pdf"
+          href="/Meer-Kalal-Arshad-Resume.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          download="Meer-Kalal-Arshad-Resume.pdf"
           className="hidden md:inline-flex items-center gap-2 px-5 py-2.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-semibold text-sm rounded-lg transition-all duration-200 hover:shadow-gold focus-visible:outline-gold-400"
           aria-label="Download Meer's Resume"
         >
@@ -117,8 +119,10 @@ export default function Header() {
             </a>
           ))}
           <a
-            href="/resume.pdf"
-            download="Meer_Kalal_Arshad_Resume.pdf"
+            href="/Meer-Kalal-Arshad-Resume.pdf"
+            target="_blank"
+            rel="noopener noreferrer"
+            download="Meer-Kalal-Arshad-Resume.pdf"
             className="mt-2 px-4 py-3 bg-gold-500 text-navy-900 font-semibold rounded-lg text-center flex items-center justify-center gap-2"
             tabIndex={menuOpen ? 0 : -1}
           >

@@ -153,8 +153,10 @@ export default function Hero() {
           {/* CTAs */}
           <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
             <a
-              href="/resume.pdf"
-              download="Meer_Kalal_Arshad_Resume.pdf"
+              href="/Meer-Kalal-Arshad-Resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              download="Meer-Kalal-Arshad-Resume.pdf"
               className="group btn-shimmer inline-flex items-center gap-2 px-8 py-3.5 bg-gold-500 hover:bg-gold-400 text-navy-900 font-bold rounded-xl transition-all duration-200 hover:shadow-gold hover:-translate-y-0.5 focus-visible:outline-gold-400"
               aria-label="Download Meer's Resume PDF"
             >
